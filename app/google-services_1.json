@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "716055116857",
+    "project_id": "padmashaly-21325",
+    "storage_bucket": "padmashaly-21325.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716055116857:android:a22688faf938608e5a21e8",
+        "android_client_info": {
+          "package_name": "com.urbantech.padmashaly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716055116857-89ctt4mld96qqo4tja9fm4vp23jlsnc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.urbantech.padmashaly",
+            "certificate_hash": "dcb0cd667674f4e27c63f97c7e99afdc61d29f6c"
+          }
+        },
+        {
+          "client_id": "716055116857-7gr7bil4n5vq5jt6qeat04nm9lgpv1s5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMZTNYBphi5_laHDA_LT0F_k2hpkGe3_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716055116857-7gr7bil4n5vq5jt6qeat04nm9lgpv1s5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

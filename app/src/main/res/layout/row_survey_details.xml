@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/survey_card"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/bg_news_list"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="5dp">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="name"
+                    android:textStyle=""
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:id="@+id/name_survey_details"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_marginRight="10dp"
+                    android:text="surname"
+                    android:padding="5dp"
+                    android:gravity="right"
+                    android:id="@+id/survey_details_surname"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="DateOfBirth"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:id="@+id/survey_details_dob"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_marginRight="10dp"
+                    android:text="Gender"
+                    android:padding="5dp"
+                    android:gravity="right"
+                    android:id="@+id/survey_details_gender"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="House Number"
+                    android:textStyle=""
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:id="@+id/survey_details_housenumber"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_marginRight="10dp"
+                    android:text="Ward Number"
+                    android:padding="5dp"
+                    android:gravity="right"
+                    android:id="@+id/survey_details_wardnumber"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.33"
+                    android:text="City"
+                    android:textStyle=""
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:id="@+id/survey_details_city"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.33"
+                    android:text="Mandal"
+                    android:textStyle=""
+                    android:padding="5dp"
+                    android:id="@+id/survey_details_mandal"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.33"
+                    android:layout_marginRight="10dp"
+                    android:text="District"
+                    android:padding="5dp"
+                    android:gravity="right"
+                    android:id="@+id/survey_details_district"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Qualification"
+                    android:textStyle=""
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:id="@+id/survey_details_qualification"
+                    android:textColor="@color/text_black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginRight="10dp"
+                    android:text="Occupation"
+                    android:padding="5dp"
+                    android:gravity="right"
+                    android:id="@+id/survey_details_Occuapation"
+                    android:textColor="@color/text_black"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

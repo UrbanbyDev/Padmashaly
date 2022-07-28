@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_newsdetails1"
+    tools:context=".SurveyDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_survey_details"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:title="@string/survey"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_person"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="+ Add"
+            android:padding="5dp"
+            android:background="@color/primary"
+            android:layout_margin="5dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_survey_details"/>
+
+
+    </LinearLayout>
+
+
+
+
+    <include
+        layout="@layout/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
+    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+        android:id="@+id/progressBar_cat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:indeterminate="true"
+        app:cpb_colors="@array/pocket_bar_colors"
+        android:layout_centerInParent="true"
+        app:cpb_rotation_speed="1.0"
+        app:cpb_sweep_speed="1.0"
+        app:cpb_stroke_width="4dp"
+        app:cpb_min_sweep_angle="10"
+        app:cpb_max_sweep_angle="300"/>
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="5dp"-->
+<!--        app:cardBackgroundColor="@color/white"-->
+<!--        app:cardCornerRadius="5dp">-->
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_margin="5dp">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginEnd="5dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:elevation="5dp"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/name_survey_details"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="Bhavani"-->
+<!--                        android:textStyle="" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_surname"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:gravity="right"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="Chintha" />-->
+<!--                </LinearLayout>-->
+
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_dob"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="19-01-1999" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_gender"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:gravity="right"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="Female" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_housenumber"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="5-6-445/5/1"-->
+<!--                        android:textStyle="" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_wardnumber"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:gravity="right"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="30" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_city"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_weight="0.33"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="Karimnagar"-->
+<!--                        android:textStyle="" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_mandal"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="0.33"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="Karimnagar"-->
+<!--                        android:textStyle="" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_district"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_weight="0.33"-->
+<!--                        android:gravity="right"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="Karimnagar" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_qualification"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="B.tech"-->
+<!--                        android:textStyle="" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/survey_details_Occuapation"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:gravity="right"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="Business" />-->
+<!--                </LinearLayout>-->
+
+
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="5dp"-->
+<!--        app:cardBackgroundColor="@color/white"-->
+<!--        app:cardCornerRadius="5dp">-->
+<!--        <RelativeLayout-->
+<!--            xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_margin="5dp">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:elevation="5dp"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:weightSum="1"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:text="Shireesha"-->
+<!--                        android:textStyle=""-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:padding="5dp"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:text="Sambari"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:gravity="right"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                </LinearLayout>-->
+
+
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:weightSum="1"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:text="14-11-1997"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:padding="5dp"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:text="Female"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:gravity="right"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:weightSum="1"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:text="180/d"-->
+<!--                        android:textStyle=""-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:padding="5dp"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:text="2"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:gravity="right"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:weightSum="1"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.33"-->
+<!--                        android:text="Karimanagar"-->
+<!--                        android:textStyle=""-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:padding="5dp"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.33"-->
+<!--                        android:text="Karimanagar"-->
+<!--                        android:textStyle=""-->
+<!--                        android:padding="5dp"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.33"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:text="Karimanagar"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:gravity="right"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:weightSum="1"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:text="B.tech"-->
+<!--                        android:textStyle=""-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:padding="5dp"-->
+
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:text="Employee"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:gravity="right"-->
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                </LinearLayout>-->
+
+
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#EB2467</color>
+
+    <color name="nav_icon">#C5C5C5</color>
+
+    <color name="bg">#0b0b0b</color>
+
+    <color name="sel_cat">#00c9ff</color>
+
+    <color name="primary">#00c9ff</color>
+
+    <color name="text_primary">#00c9ff</color>
+    <color name="text_white">#000000</color>
+    <color name="text_whiteAA">#AA000000</color>
+    <color name="text_black">#ffffff</color>
+    <color name="textView_empty">#90ffffff</color>
+
+    <color name="bg_news_list">#2F2F2F</color>
+    <color name="bg_button">#323232</color>
+    <color name="bg_newsdetails1">#000000</color>
+    <color name="bg_newsdetails2">#2F2F2F</color>
+    <color name="bg_privacy">#2F2F2F</color>
+
+    <color name="nav_hover">#20000000</color>
+    <color name="nav_selected">#101010</color>
+
+    <color name="white_30">#30ffffff</color>
+    <color name="gradient_black_corner">#d8d9d1</color>
+
+    <color name="black_90_dark">#90ffffff</color>
+    <color name="black_50_dark">#50ffffff</color>
+
+    <color name="black_30">#30ffffff</color>
+    <color name="pink">#FF4081</color>
+    <color name="btn_login">#FF4081</color>
+    <color name="btn_skip">#48a62a</color>
+    <color name="white_dark">#000000</color>
+    <color name="white_tansp">#40000000</color>
+    <color name="black_tansp">#20ffffff</color>
+    <color name="black">#ffffff</color>
+
+    <color name="grey">#A5A2A2</color>
+
+    <color name="tab">#cacaca</color>
+    <color name="bg_cardview">#f6f6f6</color>
+    <color name="DFDEDE">#DFDEDE</color>
+    <color name="blackcc">#cc000000</color>
+    <color name="black_50">#50000000</color>
+    <color name="white40">#40ffffff</color>
+    <color name="cat_unselected">#a8a8a8</color>
+    <color name="social_ggle">#ea4235</color>
+    <color name="social_fb">#3b5999</color>
+    <color name="text_sub_login">#aaffffff</color>
+
+    <color name="white">#ffffff</color>
+    <color name="red">#ff0000</color>
+    <color name="black_90">#90000000</color>
+
+    <integer-array name="pocket_bar_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_4">#b23424</color>
+
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "153248192267",
+    "project_id": "padmashali-2fd93",
+    "storage_bucket": "padmashali-2fd93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153248192267:android:77d70263672d472515340e",
+        "android_client_info": {
+          "package_name": "com.urbantech.padmashali"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153248192267-jnora85afim98anb026m2m1r1r9e8eaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyakuBT0LghrELS1wTk7G3Pcn-jiGm_FI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153248192267-jnora85afim98anb026m2m1r1r9e8eaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

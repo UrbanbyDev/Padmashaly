@@ -42,14 +42,14 @@
                         android:id="@+id/iv_pro_edit"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/placeholder_prof"
-                        app:riv_border_color="#DFDFDF"
-                        app:riv_corner_radius="50dp"
-                        android:scaleType="centerCrop"
+                        android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_centerInParent="true"/>
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/placeholder_prof"
+                        app:riv_border_color="#DFDFDF"
+                        app:riv_corner_radius="50dp" />
 
                     <ImageView
                         android:layout_width="wrap_content"

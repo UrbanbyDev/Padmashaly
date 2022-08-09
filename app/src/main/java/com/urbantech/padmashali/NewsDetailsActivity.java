@@ -361,7 +361,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
                         methods.showToast(message);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_LIKE, 0, "", id, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_LIKE, 0, "", id, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadLike.execute();
         } else {
             methods.showToast(getString(R.string.err_internet_not_conn));
@@ -389,7 +389,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
                         methods.showToast(message);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_FAV, 0, "", qid, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_FAV, 0, "", qid, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadFav.execute();
         } else {
             methods.showToast(getString(R.string.err_internet_not_conn));
@@ -537,7 +537,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
                         Toast.makeText(NewsDetailsActivity.this, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_DELETE_NEWS, 0, "", Constant.itemNewsCurrent.getId(), "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_DELETE_NEWS, 0, "", Constant.itemNewsCurrent.getId(), "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadStatus.execute();
         } else {
             Toast.makeText(this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();
@@ -613,7 +613,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
                     Toast.makeText(NewsDetailsActivity.this, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, methods.getAPIRequest(Constant.METHOD_DELETE_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), "", "", arrayListComments.get(pos).getId(), "", "", "", "", "", "", "",  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_DELETE_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), "", "", arrayListComments.get(pos).getId(), "", "", "", "", "", "", "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadCommentDelete.execute();
     }
 
@@ -645,7 +645,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
                     }
                 }
 
-            }, methods.getAPIRequest(Constant.METHOD_SINGLE_NEWS, 0, "", nid, "", "", "", "", "", "", "", "", "", "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_SINGLE_NEWS, 0, "", nid, "", "", "", "", "", "", "", "", "", "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadSingleNews.execute();
         } else {
             Toast.makeText(NewsDetailsActivity.this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();
@@ -698,7 +698,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
                 }
             }
 
-        }, methods.getAPIRequest(Constant.METHOD_POST_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), editText_comment.getText().toString(), "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_POST_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), editText_comment.getText().toString(), "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadCommentPost.execute();
     }
 
@@ -726,7 +726,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
                         Toast.makeText(NewsDetailsActivity.this, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_REPORT, 0, "", Constant.itemNewsCurrent.getId(), "", "", "", "", "", "", "", "", Constant.itemUser.getId(), report,  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_REPORT, 0, "", Constant.itemNewsCurrent.getId(), "", "", "", "", "", "", "", "", Constant.itemUser.getId(), report,  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadReport.execute();
         } else {
             Toast.makeText(this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();

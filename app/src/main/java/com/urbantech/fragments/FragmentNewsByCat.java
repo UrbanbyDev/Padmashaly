@@ -217,7 +217,7 @@ public class FragmentNewsByCat extends Fragment {
                         progressBar.setVisibility(View.GONE);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_NEWS_BY_CAT, page, "", "", "", "", Constant.arrayList_cat.get(position).getId(), "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_NEWS_BY_CAT, page, "", "", "", "", Constant.arrayList_cat.get(position).getId(), "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadNews.execute();
         } else {
             isOver = true;

@@ -70,7 +70,7 @@ public class UploadedNewsEditActivity extends AppCompatActivity implements DateP
     private RecyclerView rv_upload_gallery;
     private AdapterGalleryEdit adapterGallery;
     private Spinner spinner_type;
-    private CardView cv_gallery;
+    private CardView cv_gallery,cv_upload_video_image;
     private MultiSelectSpinner spinner_cat;
     private AppCompatButton button_submit, button_upload_gallery,button_upload_video;
     private AppCompatEditText et_title, et_url, et_description;
@@ -123,6 +123,8 @@ public class UploadedNewsEditActivity extends AppCompatActivity implements DateP
         progress.setMessage(getResources().getString(R.string.loading));
         progress.setCancelable(false);
 
+        cv_upload_video_image=findViewById(R.id.cv_upload_video_image);
+
         cv_gallery = findViewById(R.id.cv_upload_gallery);
         rv_upload_gallery = findViewById(R.id.rv_upload_gallery);
         ll_url = findViewById(R.id.ll_upload_video_url);
@@ -152,6 +154,7 @@ public class UploadedNewsEditActivity extends AppCompatActivity implements DateP
 
         arrayListType.add("Image");
         arrayListType.add("Video");
+        arrayListType.add("Text");
 
         rv_upload_gallery.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
 
@@ -279,10 +282,17 @@ public class UploadedNewsEditActivity extends AppCompatActivity implements DateP
                     type = "image";
                     ll_url.setVisibility(View.GONE);
                     cv_gallery.setVisibility(View.VISIBLE);
+                    cv_upload_video_image.setVisibility(View.VISIBLE);
                 } else if (i == 1) {
                     type = "video";
                     ll_url.setVisibility(View.VISIBLE);
                     cv_gallery.setVisibility(View.GONE);
+                    cv_upload_video_image.setVisibility(View.VISIBLE);
+                } else if (i == 2) {
+                    type="Text";
+                    ll_url.setVisibility(View.GONE);
+                    cv_gallery.setVisibility(View.GONE);
+                    cv_upload_video_image.setVisibility(View.GONE);
                 }
             }
 
@@ -359,7 +369,7 @@ public class UploadedNewsEditActivity extends AppCompatActivity implements DateP
                     }
                 }
             }
-        }, methods.getAPIRequest(Constant.METHOD_CATEGORY, 0, "", "", "", "", "", "", "", "", "", "", "", et_url.getText().toString(),  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_CATEGORY, 0, "", "", "", "", "", "", "", "", "", "", "", et_url.getText().toString(),  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadAllCat.execute();
     }
 
@@ -370,9 +380,11 @@ public class UploadedNewsEditActivity extends AppCompatActivity implements DateP
 
         if (itemNews.getType().equals("image")) {
             spinner_type.setSelection(0, true);
-        } else {
+        } else if(itemNews.getType().equals("video")){
             spinner_type.setSelection(1, true);
             et_url.setText(itemNews.getVideoUrl());
+        }else {
+            spinner_type.setSelection(2,true);
         }
 
         Picasso.get().load(itemNews.getImage()).into(iv_image);
@@ -430,7 +442,7 @@ public class UploadedNewsEditActivity extends AppCompatActivity implements DateP
                 }
                 progress.dismiss();
             }
-        }, methods.getAPIRequest(Constant.METHOD_EDIT_UPLOAD_NEWS, 0, et_title.getText().toString(), itemNews.getId(), et_description.getText().toString(), type, cat_id, "", "", "", "", "", Constant.itemUser.getId(), et_url.getText().toString(),  "","","","","","","","","",file, arrayList_file));
+        }, methods.getAPIRequest(Constant.METHOD_EDIT_UPLOAD_NEWS, 0, et_title.getText().toString(), itemNews.getId(), et_description.getText().toString(), type, cat_id, "", "", "", "", "", Constant.itemUser.getId(), et_url.getText().toString(),  "","","","","","","","","","","","","","","","","","","","","",file, arrayList_file));
         loadUpload.execute();
 
     }

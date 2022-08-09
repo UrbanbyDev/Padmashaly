@@ -235,7 +235,7 @@ public class LiveChannelActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                 }
 
-            }, methods.getAPIRequest(Constant.METHOD_CHANNEL, 0, "", "", "", "", "", "", "", "", "", "", "", "", "","","","","","","","","", null, null));
+            }, methods.getAPIRequest(Constant.METHOD_CHANNEL, 0, "", "", "", "", "", "", "", "", "", "", "", "", "","","","","","","","","", "","","","","","","","","","","","",null, null));
             loadChannel.execute();
         } else {
             errr_msg = getString(R.string.err_internet_not_conn);

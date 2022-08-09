@@ -153,7 +153,7 @@ public class AddUserActivity extends AppCompatActivity {
                         Toast.makeText(AddUserActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_ADDUSER, 0, "", "", "", "", "", "", editText_email_adduser.getText().toString(), editText_pass_adduser.getText().toString(), editText_name_adduser.getText().toString(), editText_phone_adduser.getText().toString(), "", "",  "","","","","","","","","",file, null));
+            }, methods.getAPIRequest(Constant.METHOD_ADDUSER, 0, "", "", "", "", "", "", editText_email_adduser.getText().toString(), editText_pass_adduser.getText().toString(), editText_name_adduser.getText().toString(), editText_phone_adduser.getText().toString(), "", "",  "","","","","","","","","","","","","","","","","","","","","",file, null));
             loadAddUser.execute();
         } else {
             Toast.makeText(this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();

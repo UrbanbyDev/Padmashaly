@@ -206,7 +206,7 @@ public class FragmentSearch extends Fragment {
                         progressBar.setVisibility(View.GONE);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_SEARCH, page, "", "", Constant.search_text, "", "", "", "", "", "", "", "", "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_SEARCH, page, "", "", Constant.search_text, "", "", "", "", "", "", "", "", "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadNews.execute();
         } else {
             isOver = true;

@@ -104,7 +104,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     Toast.makeText(ForgotPasswordActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, methods.getAPIRequest(Constant.METHOD_FORGOT_PASSWORD, 0, "", "", "", "", "", "", editText_email.getText().toString(), "", "", "", "", "",  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_FORGOT_PASSWORD, 0, "", "", "", "", "", "", editText_email.getText().toString(), "", "", "", "", "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadForgotPass.execute();
     }
 }

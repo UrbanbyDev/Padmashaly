@@ -245,7 +245,7 @@ public class FragmentLatest extends Fragment {
                         progressBar.setVisibility(View.GONE);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_LATEST_USER, page, "", "", "", "", sharedPref.getCat(), "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_LATEST_USER, page, "", "", "", "", sharedPref.getCat(), "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
 
             loadNews.execute();
         } else {

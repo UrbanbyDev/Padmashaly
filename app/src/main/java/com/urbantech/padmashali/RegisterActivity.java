@@ -205,7 +205,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_REGISTER, 0, "", "", "", "", "", "", editText_email.getText().toString(), editText_pass.getText().toString(), editText_name.getText().toString(), editText_phone.getText().toString(), "", "", "","","","","","","","","", file, null));
+            }, methods.getAPIRequest(Constant.METHOD_REGISTER, 0, "", "", "", "", "", "", editText_email.getText().toString(), editText_pass.getText().toString(), editText_name.getText().toString(), editText_phone.getText().toString(), "", "", "","","","","","","","","", "","","","","","","","","","","","",file, null));
             loadRegister.execute();
         } else {
             Toast.makeText(this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();

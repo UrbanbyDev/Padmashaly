@@ -200,7 +200,7 @@ public class NewsByRelatedActivity extends AppCompatActivity {
                     setAdapter();
                     progressBar.setVisibility(View.GONE);
                 }
-            }, methods.getAPIRequest(Constant.METHOD_RELATED_NEWS, page, "", Constant.itemNewsCurrent.getId(), "", "", Constant.itemNewsCurrent.getCatId(), "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_RELATED_NEWS, page, "", Constant.itemNewsCurrent.getId(), "", "", Constant.itemNewsCurrent.getCatId(), "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadNews.execute();
         } else {
             isOver = true;

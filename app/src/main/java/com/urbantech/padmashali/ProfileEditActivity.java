@@ -213,7 +213,7 @@ public class ProfileEditActivity extends AppCompatActivity {
                         Toast.makeText(ProfileEditActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_PROFILE_EDIT, 0, "", "", "", "", caste_type, "", editText_email.getText().toString(), editText_pass.getText().toString(), editText_name.getText().toString(), editText_phone.getText().toString(), Constant.itemUser.getId(), "", "","","","","","","","","", file, null));
+            }, methods.getAPIRequest(Constant.METHOD_PROFILE_EDIT, 0, "", "", "", "", caste_type, "", editText_email.getText().toString(), editText_pass.getText().toString(), editText_name.getText().toString(), editText_phone.getText().toString(), Constant.itemUser.getId(), "", "","","","","","","","","","","","","","","","","","","","","", file, null));
             loadProfileEdit.execute();
         } else {
             Toast.makeText(ProfileEditActivity.this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();

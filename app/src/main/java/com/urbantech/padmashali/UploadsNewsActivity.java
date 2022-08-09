@@ -346,7 +346,7 @@ public class UploadsNewsActivity extends AppCompatActivity implements DatePicker
                     }
                 }
             }
-        }, methods.getAPIRequest(Constant.METHOD_CATEGORY, 0, "", "", "", "", "", "", "", "", "", "", "", et_url.getText().toString(),  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_CATEGORY, 0, "", "", "", "", "", "", "", "", "", "", "", et_url.getText().toString(),  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadAllCat.execute();
     }
 
@@ -401,7 +401,7 @@ public class UploadsNewsActivity extends AppCompatActivity implements DatePicker
                 }
                 progress.dismiss();
             }
-        }, methods.getAPIRequest(Constant.METHOD_UPLOAD_NEWS, 0, et_title.getText().toString(), "", et_description.getText().toString(), type, cat_id, "", "", "", "", "", Constant.itemUser.getId(), et_url.getText().toString(), "","","","","","","","","", file, arrayList_file));
+        }, methods.getAPIRequest(Constant.METHOD_UPLOAD_NEWS, 0, et_title.getText().toString(), "", et_description.getText().toString(), type, cat_id, "", "", "", "", "", Constant.itemUser.getId(), et_url.getText().toString(), "","","","","","","","","", "","","","","","","","","","","","",file, arrayList_file));
         loadUpload.execute();
 
     }

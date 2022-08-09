@@ -1,5 +1,6 @@
     package com.urbantech.utils;
 
+import com.urbantech.item.ItemMember;
 import com.urbantech.padmashali.BuildConfig;
 import com.urbantech.item.ItemAbout;
 import com.urbantech.item.ItemCat;
@@ -27,6 +28,10 @@ public class Constant implements Serializable {
     public static final String METHOD_UPCOMING_SERVICES="get_upcoming_services";
     public static final String METHOD_FEEDBACK="feedback";
     public static final String METHOD_LIKE = "liked_news";
+
+    public static final String METHOD_MEMBERSHIP="membership";
+    public static final String METHOD_MEMBERSHIP_DETAILS="membership_details";
+    public static final String METHOD_SINGLE_MEMBERSHIP="single_membership_details";
 
     public static final String METHOD_HOME = "get_home";
     public static final String METHOD_LATEST = "get_latest";
@@ -135,4 +140,6 @@ public class Constant implements Serializable {
     public static String search_text = "";
 
     public static int adCount = 1;
+
+    public static  ItemMember itemMember =new ItemMember("","","","","","","","","","","","","","","","","","","","","","","","","","","","");
 }

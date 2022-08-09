@@ -127,7 +127,7 @@ public class SurveyDetailsActivity extends AppCompatActivity {
                 }
 
 
-            }, methods.getAPIRequest(Constant.METHOD_SURVEY_DETAILS,0,"","","","","","","","","","",Constant.itemUser.getId(),"","","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_SURVEY_DETAILS,0,"","","","","","","","","","",Constant.itemUser.getId(),"","","","","","","","","","","","","","","","","","","","","","",null, null));
             loadSurveyDetails.execute();
         } else {
             errr_msg = getString(R.string.err_internet_not_conn);

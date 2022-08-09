@@ -177,7 +177,7 @@ public class SelectCategoriesActivity extends AppCompatActivity {
                     }
                     setAdapter();
                 }
-            }, methods.getAPIRequest(Constant.METHOD_CATEGORY, 0, "", "", "", "", "", "", "", "", "", "", "", "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_CATEGORY, 0, "", "", "", "", "", "", "", "", "", "", "", "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadCat.execute();
         } else {
             errr_msg = getString(R.string.err_internet_not_conn);
@@ -213,7 +213,7 @@ public class SelectCategoriesActivity extends AppCompatActivity {
                     }
 //                    setAdapter();
                 }
-            }, methods.getAPIRequest(Constant.METHOD_SAVE_CATEGORY, 0, "", "", "", "", ids, "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_SAVE_CATEGORY, 0, "", "", "", "", ids, "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadCat.execute();
         } else {
             errr_msg = getString(R.string.err_internet_not_conn);

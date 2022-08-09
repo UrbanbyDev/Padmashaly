@@ -204,8 +204,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="upload_news">Upload Post</string>
     <string name="survey">Survey</string>
-    <string name="surname">surname</string>
-    <string name="fathername">fathername</string>
+    <string name="surname">Surname</string>
+    <string name="fathername">Father name</string>
     <string name="dob">Date of Birth</string>
     <string name="gender">Gender</string>
     <string name="housenumber">House Number</string>
@@ -216,8 +216,68 @@
     <string name="qualification">Qualification</string>
     <string name="occupation">Occupation</string>
     <string name="no_survey_details">No Survey Details</string>
+    <string name="no_membership_details">No MemberShip Details</string>
     <string name="feedback">Feedback</string>
     <string name="caste">Caste</string>
     <string name="id_card">ID Card</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="male">Male</string>
+    <string name="married">Married</string>
+    <string name="un_married">Un Married</string>
+    <string name="street_village">Street/Village</string>
+    <string name="ward_number_division_number">Ward Number/Division Number</string>
+    <string name="assembly_constituency">Assembly Constituency</string>
+    <string name="parliament_constituency">Parliament Constituency</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="member_ship">Membership</string>
+    <string name="are_you_belongs_to_hindu_religion">Are you belongs to Hindu Religion ?</string>
+    <string name="marital_status">Marital Status</string>
+    <string name="spouse_name">Spouse Name</string>
+    <string name="specify_qualification">Specify Qualification</string>
+    <string name="specify_occupation">Specify Occupation</string>
+    <string name="rules_and_regulations">RULES AND REGULATIONS</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="qualification_array">
+        <item>Graduate</item>
+        <item>Under Graduate</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="occupation_array">
+        <item>Student</item>
+        <item>Employee</item>
+    </string-array>
+
+    <string name="rules_text">
+        1. Above mentioned details are true and correct to my knowledge, kindly enroll my membership as per rules.\n
+        2. I will abide myself to the rules and regulations of sangam.\n
+        3. I will inform my change of address through email.\n
+        4.I will spare my time n and work for the integrity and development of organisation.\n
+        5. I will recommend this membership to all of my known cummunity people.
+
+    </string>
+    <string name="create_membership">Create Membership</string>
+    <string name="accept_all_terms_and_conditions_of_the_organisation">Accept all terms and conditions of the organisation</string>
+    <string name="applicable_for">Applicable For</string>
+    <string name="amount_to_be_paid">Amount To be Paid</string>
+    <string name="reference_mobile_number">Reference Mobile Number</string>
+    <string name="profession">Profession</string>
+    <string name="specify_profession">Specify Profession</string>
+    <string name="your_posts">your Posts</string>
+    <string name="user_news">User News</string>
+
+    <string-array name="applicable_array">
+        <item>Membership</item>
+        <item>Life MemberShip</item>
+        <item>Donar MemberShip</item>
+    </string-array>
 
 </resources>

@@ -32,6 +32,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
         <activity
+            android:name=".UserNewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SingleMemberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateMemberShipActivity"
+            android:exported="false" />
+        <activity
             android:name=".IDActivity"
             android:exported="false" />
         <activity

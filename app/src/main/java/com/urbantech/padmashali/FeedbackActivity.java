@@ -80,7 +80,7 @@ public class FeedbackActivity extends AppCompatActivity {
 
             }
 
-        }, methods.getAPIRequest(Constant.METHOD_FEEDBACK, 0, feedback_text.getText().toString(), "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "","","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_FEEDBACK, 0, feedback_text.getText().toString(), "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "","","","","","","","","","","","","","","","","","","","","","",null, null));
         loadFeedback.execute();
     }
 }

@@ -207,7 +207,7 @@ public class FragmentFav extends Fragment {
                         progressBar.setVisibility(View.GONE);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_FAV_LIST, page, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_FAV_LIST, page, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","","","","","","","","","","","","","",null, null));
 
             loadNews.execute();
         } else {

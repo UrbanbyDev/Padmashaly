@@ -29,7 +29,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-
     SharedPref sharedPref;
     Methods methods;
     DBHelper dbHelper;
@@ -145,7 +144,7 @@ public class SplashActivity extends AppCompatActivity {
                         errorDialog(getString(R.string.server_error), getString(R.string.server_error));
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_APP_DETAILS, 0, "", "", "", "", "", "", "", "", "", "", "", "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_APP_DETAILS, 0, "", "", "", "", "", "", "", "", "", "", "", "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadAbout.execute();
         } else {
             errorDialog(getString(R.string.err_internet_not_conn), getString(R.string.err_connect_net_try));
@@ -178,7 +177,7 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
 
-        }, methods.getAPIRequest(Constant.METHOD_LOGIN, 0, "", "", "", loginType, "", "", sharedPref.getEmail(), sharedPref.getPassword(), "", "", authID, "",  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_LOGIN, 0, "", "", "", loginType, "", "", sharedPref.getEmail(), sharedPref.getPassword(), "", "", authID, "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadLogin.execute();
     }
 

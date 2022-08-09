@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -21,14 +20,22 @@ import com.google.android.material.button.MaterialButton;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 import com.urbantech.AsyncTask.LoadApplyReporter;
+import com.urbantech.AsyncTask.LoadMemberShipDetails;
 import com.urbantech.AsyncTask.LoadNews;
 import com.urbantech.AsyncTask.LoadProfile;
+import com.urbantech.AsyncTask.LoadSurveyDetails;
+import com.urbantech.adapter.AdapterMemberShip;
 import com.urbantech.adapter.AdapterUserNews;
+import com.urbantech.adapter.SurveyDetailsAdapter;
 import com.urbantech.eventbus.EventDelete;
 import com.urbantech.eventbus.GlobalBus;
+import com.urbantech.interfaces.MembershipListener;
 import com.urbantech.interfaces.NewsListener;
 import com.urbantech.interfaces.SuccessListener;
+import com.urbantech.interfaces.SurveyDetailsListener;
+import com.urbantech.item.ItemMember;
 import com.urbantech.item.ItemNews;
+import com.urbantech.item.ItemSurvey;
 import com.urbantech.utils.Constant;
 import com.urbantech.utils.EndlessRecyclerViewScrollListener;
 import com.urbantech.utils.Methods;
@@ -55,14 +62,14 @@ public class ProfileActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     private Methods methods;
-    private RecyclerView rv_profile;
-    private AdapterUserNews myAdapter;
-    private ArrayList<ItemNews> arrayList;
+//    private RecyclerView rv_profile;
+//    private AdapterUserNews myAdapter;
+//    private ArrayList<ItemNews> arrayList;
     private RoundedImageView iv_prof;
     private TextView textView_email, textView_mobile, textView_notlog, tv_hello;
     private ProgressDialog progressDialog;
     //    private CollapsingToolbarLayout collapsing;
-    private MaterialButton btn_apply_reporter, btn_add_news,btn_id_card;
+    private MaterialButton btn_apply_reporter, btn_add_news,btn_user_posts;
     private CircularProgressBar progressBar;
     private int page = 1, totalArraySize = 0;
     private Boolean isOver = false, isScroll = false;
@@ -72,6 +79,11 @@ public class ProfileActivity extends AppCompatActivity {
     private AppCompatButton button_try;
     private LinearLayout ll_empty;
     private String errr_msg;
+
+    TextView create_membership;
+    RecyclerView recycler_membership;
+    AdapterMemberShip adapterMemberShip;
+    ArrayList<ItemMember> arrayList;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -99,14 +111,15 @@ public class ProfileActivity extends AppCompatActivity {
         ll_empty = findViewById(R.id.ll_empty);
         textView_empty = findViewById(R.id.textView_empty_msg);
         button_try = findViewById(R.id.button_empty_try);
-        errr_msg = getString(R.string.no_news_found);
+        errr_msg = getString(R.string.no_membership_details);
 
 //        collapsing = findViewById(R.id.collapsing);
 //        collapsing.setTitle(Constant.itemUser.getName());
 
         btn_add_news = findViewById(R.id.btn_details_add_news);
         btn_apply_reporter = findViewById(R.id.btn_profile_apply_reporter);
-        rv_profile = findViewById(R.id.rv_profile);
+//        rv_profile = findViewById(R.id.rv_profile);
+        recycler_membership=findViewById(R.id.recycler_membership);
         iv_prof = findViewById(R.id.iv_prof);
         progressBar = findViewById(R.id.progressBar_prof);
         textView_email = findViewById(R.id.tv_prof_email);
@@ -114,14 +127,17 @@ public class ProfileActivity extends AppCompatActivity {
         textView_notlog = findViewById(R.id.textView_notlog);
         tv_hello = findViewById(R.id.tv_details_hello);
 
-        btn_id_card=findViewById(R.id.btn_id_card);
+        btn_user_posts=findViewById(R.id.btn_your_post);
 
         tv_hello.setText(getString(R.string.hello) + " " + Constant.itemUser.getName() + ",");
 
 //        LinearLayout ll_adView = findViewById(R.id.ll_adView);
 //        methods.showBannerAd(ll_adView);
 
+        create_membership=findViewById(R.id.create_membership_txt);
         edit_profile=findViewById(R.id.edit_profile);
+
+
         edit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,41 +146,40 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        btn_id_card.setOnClickListener(new View.OnClickListener() {
+        create_membership.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ProfileActivity.this,IDActivity.class);
+                Intent intent=new Intent(ProfileActivity.this,CreateMemberShipActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_user_posts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ProfileActivity.this,UserNewsActivity.class);
                 startActivity(intent);
             }
         });
 
 
-
         LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv_profile.setLayoutManager(llm);
-        rv_profile.setItemAnimator(new DefaultItemAnimator());
+//        rv_profile.setLayoutManager(llm);
+//        rv_profile.setItemAnimator(new DefaultItemAnimator());
+        recycler_membership.setLayoutManager(llm);
+        recycler_membership.setItemAnimator(new DefaultItemAnimator());
 
-        rv_profile.addOnScrollListener(new EndlessRecyclerViewScrollListener(llm) {
-            @Override
-            public void onLoadMore(int p, int totalItemsCount) {
-                if (!isOver) {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            isScroll = true;
-                            loadNewsData();
-                        }
-                    }, 0);
-                } else {
-                    myAdapter.hideHeader();
-                }
-            }
-        });
+        adapterMemberShip=new AdapterMemberShip(ProfileActivity.this,arrayList);
+        recycler_membership.setAdapter(adapterMemberShip);
+
+
+        loadMembershipDetails();
 
         button_try.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                loadNewsData();
+            public void onClick(View v)
+            {
+                loadMembershipDetails();
             }
         });
 
@@ -203,6 +218,43 @@ public class ProfileActivity extends AppCompatActivity {
         } else {
             setEmpty(true, getString(R.string.not_log));
         }
+    }
+
+    private void loadMembershipDetails() {
+        if (methods.isNetworkAvailable()) {
+            LoadMemberShipDetails loadMemberShipDetails = new LoadMemberShipDetails(new MembershipListener() {
+                    @Override
+                    public void onStart() {
+                        arrayList.clear();
+                        ll_empty.setVisibility(View.GONE);
+                        recycler_membership.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.VISIBLE);
+                    }
+
+                @Override
+                public void onEnd(String success, String verifyStatus, String message, ArrayList<ItemMember> MemberArrayList) {
+                    if (ProfileActivity.this!= null) {
+                        if (success.equals("1")) {
+                            if (!verifyStatus.equals("-1")) {
+                                arrayList.addAll(MemberArrayList);
+                                errr_msg = getString(R.string.no_membership_details);
+                            } else {
+                                errr_msg = getString(R.string.err_server_no_conn);
+                                methods.getVerifyDialog(getString(R.string.error_unauth_access), message);
+                            }
+                        }
+                        setAdapter();
+                        progressBar.setVisibility(View.GONE);
+                    }
+                }
+
+                }, methods.getAPIRequest(Constant.METHOD_MEMBERSHIP_DETAILS,0,"","","","","","","","","","",Constant.itemUser.getId(),"","","","","","","","","","","","","","","","","","","","","","",null, null));
+                loadMemberShipDetails.execute();
+            } else {
+                errr_msg = getString(R.string.err_internet_not_conn);
+                setEmpty();
+        }
+
     }
 
 //    @Override
@@ -255,10 +307,10 @@ public class ProfileActivity extends AppCompatActivity {
                 }
 
 //                if (Constant.itemUser.getIsReporter()) {
-                    loadNewsData();
+//                    loadNewsData();
 //                }
             }
-        }, methods.getAPIRequest(Constant.METHOD_PROFILE, 0, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_PROFILE, 0, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadProfile.execute();
     }
 
@@ -298,63 +350,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    private void loadNewsData() {
-        if (methods.isNetworkAvailable()) {
-            LoadNews loadNews = new LoadNews(new NewsListener() {
-                @Override
-                public void onStart() {
-                    if (arrayList.size() == 0) {
-                        ll_empty.setVisibility(View.GONE);
-                        rv_profile.setVisibility(View.GONE);
-                        progressBar.setVisibility(View.VISIBLE);
-                    }
-                }
-
-                @Override
-                public void onEnd(String success, String verifyStatus, String message, ArrayList<ItemNews> arrayListNews, int totalNews) {
-                    if (success.equals("1")) {
-                        if (!verifyStatus.equals("-1")) {
-                            if (arrayListNews.size() == 0) {
-                                isOver = true;
-                                try {
-                                    myAdapter.hideHeader();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            } else {
-                                totalArraySize = totalArraySize + arrayListNews.size();
-                                for (int i = 0; i < arrayListNews.size(); i++) {
-                                    arrayList.add(arrayListNews.get(i));
-
-                                    if (Constant.isNativeAd) {
-                                        int abc = arrayList.lastIndexOf(null);
-                                        if (((arrayList.size() - (abc + 1)) % Constant.nativeAdShow == 0) && (arrayListNews.size() - 1 != i || totalArraySize != totalNews)) {
-                                            arrayList.add(null);
-                                        }
-                                    }
-                                }
-
-                                page = page + 1;
-                            }
-                            errr_msg = getString(R.string.no_news_found);
-                        } else {
-                            methods.getVerifyDialog(getString(R.string.error_unauth_access), message);
-                        }
-                    } else {
-                        errr_msg = getString(R.string.err_server_no_conn);
-                    }
-                    setAdapter();
-                    progressBar.setVisibility(View.GONE);
-                }
-            }, methods.getAPIRequest(Constant.METHOD_USER_UPLOAD_LIST, page, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
-
-            loadNews.execute();
-        } else {
-            isOver = true;
-            errr_msg = getString(R.string.err_internet_not_conn);
-            setEmpty();
-        }
-    }
 
     private void loadApplyReporter(String email, String password) {
         if (methods.isNetworkAvailable()) {
@@ -383,58 +378,49 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(ProfileActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_APPLY_REPORTER, 0, "", "", "", "", "", "", email, password, "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_APPLY_REPORTER, 0, "", "", "", "", "", "", email, password, "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadApplyReporter.execute();
         } else {
             Toast.makeText(this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void loadNativeAds() {
-        if (Constant.isNativeAd && arrayList.size() >= 10) {
-            AdLoader.Builder builder = new AdLoader.Builder(ProfileActivity.this, Constant.nativeAdID);
-            AdLoader adLoader = builder.forNativeAd(
-                    new NativeAd.OnNativeAdLoadedListener() {
-                        @Override
-                        public void onNativeAdLoaded(NativeAd nativeAd) {
-                            // A native ad loaded successfully, check if the ad loader has finished loading
-                            // and if so, insert the ads into the list.
-                            try {
-                                myAdapter.addAds(nativeAd);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }).build();
+//    private void loadNativeAds() {
+//        if (Constant.isNativeAd && arrayList.size() >= 10) {
+//            AdLoader.Builder builder = new AdLoader.Builder(ProfileActivity.this, Constant.nativeAdID);
+//            AdLoader adLoader = builder.forNativeAd(
+//                    new NativeAd.OnNativeAdLoadedListener() {
+//                        @Override
+//                        public void onNativeAdLoaded(NativeAd nativeAd) {
+//                            // A native ad loaded successfully, check if the ad loader has finished loading
+//                            // and if so, insert the ads into the list.
+//                            try {
+//                                myAdapter.addAds(nativeAd);
+//                            } catch (Exception e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }).build();
+//
+//            // Load the Native Express ad.
+//            adLoader.loadAds(new AdRequest.Builder().build(), 5);
+//        }
+//    }
 
-            // Load the Native Express ad.
-            adLoader.loadAds(new AdRequest.Builder().build(), 5);
-        }
-    }
-
-    public void setAdapter() {
-        try {
-            if (!isScroll) {
-                myAdapter = new AdapterUserNews(ProfileActivity.this, arrayList, true);
-                rv_profile.setAdapter(myAdapter);
-                setEmpty();
-//                loadNativeAds();
-            } else {
-                myAdapter.notifyDataSetChanged();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void setAdapter() {
+        adapterMemberShip = new AdapterMemberShip(ProfileActivity.this, arrayList);
+        recycler_membership.setAdapter(adapterMemberShip);
+        setEmpty();
     }
 
     public void setEmpty() {
         progressBar.setVisibility(View.GONE);
         if (arrayList.size() > 0) {
-            rv_profile.setVisibility(View.VISIBLE);
+            recycler_membership.setVisibility(View.VISIBLE);
             ll_empty.setVisibility(View.GONE);
         } else {
             textView_empty.setText(errr_msg);
-            rv_profile.setVisibility(View.GONE);
+            recycler_membership.setVisibility(View.GONE);
             ll_empty.setVisibility(View.VISIBLE);
         }
     }
@@ -469,28 +455,28 @@ public class ProfileActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
-    public void onDelete(EventDelete eventDelete) {
-        try {
-            arrayList.clear();
-            arrayList.addAll(MySingleton.getInstance().getNews());
-            myAdapter.notifyDataSetChanged();
-            GlobalBus.getBus().removeStickyEvent(eventDelete);
-        } catch (Exception e) {
-            GlobalBus.getBus().removeStickyEvent(eventDelete);
-            e.printStackTrace();
-        }
-    }
+//    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+//    public void onDelete(EventDelete eventDelete) {
+//        try {
+//            arrayList.clear();
+//            arrayList.addAll(MySingleton.getInstance().getNews());
+//            myAdapter.notifyDataSetChanged();
+//            GlobalBus.getBus().removeStickyEvent(eventDelete);
+//        } catch (Exception e) {
+//            GlobalBus.getBus().removeStickyEvent(eventDelete);
+//            e.printStackTrace();
+//        }
+//    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        GlobalBus.getBus().register(this);
-    }
-
-    @Override
-    public void onStop() {
-        GlobalBus.getBus().unregister(this);
-        super.onStop();
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        GlobalBus.getBus().register(this);
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        GlobalBus.getBus().unregister(this);
+//        super.onStop();
+//    }
 }

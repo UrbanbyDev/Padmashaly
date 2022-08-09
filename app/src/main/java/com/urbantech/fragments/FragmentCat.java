@@ -174,7 +174,7 @@ public class FragmentCat extends Fragment {
                         progressBar.setVisibility(View.GONE);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_CATEGORY,0,"","","","","","","","","","","","","","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_CATEGORY,0,"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",null, null));
             loadCat.execute();
         } else {
             errr_msg = getString(R.string.err_internet_not_conn);

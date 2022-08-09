@@ -188,7 +188,7 @@ public class FragmentComment extends BottomSheetDialogFragment {
                         progressBar.setVisibility(View.GONE);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_COMMENTS, page, "", Constant.itemNewsCurrent.getId(), "", "", "", "", "", "", "", "", "", "", "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_COMMENTS, page, "", Constant.itemNewsCurrent.getId(), "", "", "", "", "", "", "", "", "", "", "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadComments.execute();
         } else {
             isOver = true;
@@ -243,7 +243,7 @@ public class FragmentComment extends BottomSheetDialogFragment {
                     Toast.makeText(getActivity(), getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, methods.getAPIRequest(Constant.METHOD_DELETE_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), "", "", arrayList.get(pos).getId(), "", "", "", "", "", "", "", "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_DELETE_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), "", "", arrayList.get(pos).getId(), "", "", "", "", "", "", "", "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadCommentDelete.execute();
     }
 
@@ -286,7 +286,7 @@ public class FragmentComment extends BottomSheetDialogFragment {
                         }
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_POST_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), editText_comment.getText().toString(), "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_POST_COMMENTS, 0, "", Constant.itemNewsCurrent.getId(), editText_comment.getText().toString(), "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadCommentPost.execute();
         } else {
             Toast.makeText(getActivity(), getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();

@@ -421,7 +421,7 @@ public class FragmentHome extends Fragment {
                 }
 
 
-            }, methods.getAPIRequest(Constant.METHOD_UPCOMING_SERVICES,0,"","","","","","","","","","","","","","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_UPCOMING_SERVICES,0,"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",null, null));
             loadServices.execute();
         } else {
             errr_msg = getString(R.string.err_internet_not_conn);
@@ -486,7 +486,7 @@ public class FragmentHome extends Fragment {
                         swipeRefresh.setRefreshing(false);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_HOME, 0, "", "", "", "", sharedPref.getCat(), "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_HOME, 0, "", "", "", "", sharedPref.getCat(), "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadHome.execute();
         } else {
             errr_msg = getString(R.string.err_internet_not_conn);
@@ -579,7 +579,7 @@ public class FragmentHome extends Fragment {
                         }
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_RECENT_NEWS, 1, "", recentNewsIDs, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_RECENT_NEWS, 1, "", recentNewsIDs, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
 
             loadNews.execute();
         }

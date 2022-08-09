@@ -146,7 +146,7 @@ public class AdapterGalleryEdit extends RecyclerView.Adapter<AdapterGalleryEdit.
                         Toast.makeText(context, context.getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_REMOVE_GALLERY_IMAGE, 0, "", newsID, "", "", arrayList.get(pos).getId(), "", "", "", "", "", "", "", "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_REMOVE_GALLERY_IMAGE, 0, "", newsID, "", "", arrayList.get(pos).getId(), "", "", "", "", "", "", "", "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadStatus.execute();
         } else {
             Toast.makeText(context, context.getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();

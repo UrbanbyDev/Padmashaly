@@ -636,7 +636,7 @@ public class Methods {
         alertDialog.show();
     }
 //    String method, int page, String title, String newsID, String searchText, String type, String catID, String date, String email, String password, String name, String phone, String userID, String reportMessage_url, File file, ArrayList<File> fileArray
-    public RequestBody getAPIRequest(String method, int page, String title, String newsID, String searchText, String type, String catID, String date, String email, String password, String name, String phone, String userID, String reportMessage_url,String surname,String fathername,String gender,String housenumber,String wardnumber,String city,String mandal,String district,String qualification, File file, ArrayList<File> fileArray) {
+    public RequestBody getAPIRequest(String method, int page, String title, String newsID, String searchText, String type, String catID, String date, String email, String password, String name, String phone, String userID, String reportMessage_url,String surname,String fathername,String gender,String housenumber,String wardnumber,String city,String mandal,String district,String qualification,String profession,String religion,String caste,String marital_status,String spouse_name,String spouse_date,String spouse_gender,String assembly,String parliament,String state,String country,String amount,File file, ArrayList<File> fileArray) {
         JsonObject jsObj = (JsonObject) new Gson().toJsonTree(new API());
         jsObj.addProperty("method_name", method);
         jsObj.addProperty("package_name", context.getPackageName());
@@ -888,12 +888,55 @@ public class Methods {
                 jsObj.addProperty("news_id", newsID);
 
                 break;
+            case Constant.METHOD_MEMBERSHIP:
+
+                jsObj.addProperty("user_id",userID);
+                jsObj.addProperty("member_id",newsID);
+                jsObj.addProperty("member_religion",religion);
+                jsObj.addProperty("member_caste",caste);
+                jsObj.addProperty("member_name",name);
+                jsObj.addProperty("member_surname",surname);
+                jsObj.addProperty("member_dob",date);
+                jsObj.addProperty("member_gender",gender);
+                jsObj.addProperty("member_fathername",fathername);
+                jsObj.addProperty("member_marital_status",marital_status);
+                jsObj.addProperty("spouse_name",spouse_name);
+                jsObj.addProperty("spouse_dob",spouse_date);
+                jsObj.addProperty("spouse_gender",spouse_gender);
+                jsObj.addProperty("member_qualification",qualification);
+                jsObj.addProperty("member_profession",profession);
+                jsObj.addProperty("member_hno",housenumber);
+                jsObj.addProperty("member_wardno",wardnumber);
+                jsObj.addProperty("member_city",city);
+                jsObj.addProperty("member_mandal",mandal);
+                jsObj.addProperty("member_assembly",assembly);
+                jsObj.addProperty("member_parliament",parliament);
+                jsObj.addProperty("member_district",district);
+                jsObj.addProperty("member_state",state);
+                jsObj.addProperty("member_country",country);
+                jsObj.addProperty("membership_type",type);
+                jsObj.addProperty("member_amount",amount);
+                jsObj.addProperty("member_mobile",phone);
+
+                break;
+
+            case Constant.METHOD_MEMBERSHIP_DETAILS:
+
+                jsObj.addProperty("user_id", userID);
+
+                break;
+            case Constant.METHOD_SINGLE_MEMBERSHIP:
+
+                jsObj.addProperty("member_id", newsID);
+
+                break;
 
         }
 
 //        Log.e("aaa - url", API.toBase64(jsObj.toString()));
 
-        if (method.equals(Constant.METHOD_UPLOAD_NEWS) || method.equals(Constant.METHOD_EDIT_UPLOAD_NEWS) || method.equals(Constant.METHOD_REGISTER) || method.equals(Constant.METHOD_PROFILE_EDIT)) {
+        if (method.equals(Constant
+                .METHOD_UPLOAD_NEWS) || method.equals(Constant.METHOD_EDIT_UPLOAD_NEWS) || method.equals(Constant.METHOD_REGISTER) || method.equals(Constant.METHOD_PROFILE_EDIT) || method.equals(Constant.METHOD_MEMBERSHIP)) {
             final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/*");
 
             if (method.equals(Constant.METHOD_PROFILE_EDIT) || method.equals(Constant.METHOD_REGISTER)) {
@@ -909,7 +952,22 @@ public class Methods {
                             .addFormDataPart("data", API.toBase64(jsObj.toString()))
                             .build();
                 }
-            } else {
+            }
+            else if(method.equals(Constant.METHOD_MEMBERSHIP)){
+                if (file != null) {
+                    return new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("member_profile", file.getName(), RequestBody.create(MEDIA_TYPE_PNG, file))
+                            .addFormDataPart("data", API.toBase64(jsObj.toString()))
+                            .build();
+                } else {
+                    return new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("data", API.toBase64(jsObj.toString()))
+                            .build();
+                }
+            }
+            else {
                 MultipartBody.Builder buildernew = new MultipartBody.Builder().setType(MultipartBody.FORM);
 
                 if (file != null) {
@@ -924,6 +982,8 @@ public class Methods {
                         .addFormDataPart("data", API.toBase64(jsObj.toString()))
                         .build();
             }
+
+
 
         } else {
             return new MultipartBody.Builder()

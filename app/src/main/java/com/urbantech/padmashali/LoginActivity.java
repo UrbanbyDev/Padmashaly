@@ -413,7 +413,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_LOGIN, 0,"","","",Type,"","",editText_email.getText().toString(), editText_password.getText().toString(),"","","","",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_LOGIN, 0,"","","",Type,"","",editText_email.getText().toString(), editText_password.getText().toString(),"","","","",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadLogin.execute();
         } else {
             Toast.makeText(LoginActivity.this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();
@@ -504,7 +504,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, getString(R.string.server_error), Toast.LENGTH_SHORT).show();
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_REGISTER, 0, "", "", "", loginType, "", "", email, "", name, "", authId, "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_REGISTER, 0, "", "", "", loginType, "", "", email, "", name, "", authId, "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadRegister.execute();
         } else {
             methods.showToast(getString(R.string.err_internet_not_conn));

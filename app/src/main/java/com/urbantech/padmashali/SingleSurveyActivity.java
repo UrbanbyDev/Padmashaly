@@ -15,8 +15,6 @@ public class SingleSurveyActivity extends AppCompatActivity {
     TextView name,surame,fathername,dob,gender,hno,wardnumber,city,mandal,district,qualification,occupation;
     private Methods methods;
 
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

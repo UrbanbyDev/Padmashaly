@@ -146,7 +146,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/bg_newsdetails1"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -161,8 +161,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-
-
             <View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
@@ -172,44 +170,37 @@
                 android:layout_marginEnd="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/tv_details_hello"/>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
+                android:id="@+id/create_membership_txt"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:id="@+id/btn_id_card"
-                android:text="ID Card"
-                android:textColor="@color/white"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                app:strokeWidth="2dp"
-                app:strokeColor="@color/primary"
-                app:backgroundTint="@color/primary"
-                app:layout_constraintVertical_bias="0.3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/tv_details_hello"
-                tools:ignore="MissingConstraints" />
+                android:padding="8dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:text="@string/create_membership"
+                android:drawableLeft="@drawable/ic_baseline_add_24"
+                app:layout_constraintTop_toBottomOf="@id/view1"/>
 
+<!--            <View-->
+<!--                android:id="@+id/view2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/black_30"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/create_membership_txt"/>-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_profile_apply_reporter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apply for Reporter"
-                android:textColor="@color/text_black"
-                app:strokeWidth="2dp"
-                app:strokeColor="@color/primary"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view1"
-                app:layout_constraintVertical_bias="0.3"
-                android:visibility="gone"/>
-
-
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_profile"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/create_membership_txt"/>-->
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_profile"
+                android:id="@+id/recycler_membership"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@+id/btn_profile_apply_reporter"/>
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/create_membership_txt"/>
 
             <include
                 layout="@layout/layout_empty"
@@ -219,6 +210,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="100dp"
+                app:layout_constraintTop_toBottomOf="@+id/create_membership_txt"
                 app:layout_constraintVertical_bias="0.3"
                 android:visibility="gone"/>
 
@@ -259,5 +252,46 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:orientation="vertical" />-->
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_profile_apply_reporter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply for Reporter"
+            android:textColor="@color/text_black"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/primary"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:visibility="gone"
+            android:layout_margin="5dp" />
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:id="@+id/btn_membership"-->
+<!--            android:text="@string/member_ship"-->
+<!--            android:textColor="@color/black"-->
+<!--            app:strokeWidth="2dp"-->
+<!--            app:strokeColor="@color/primary"-->
+<!--            style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--            android:layout_margin="5dp"/>-->
+        <com.google.android.material.button.MaterialButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/btn_your_post"
+            android:text="@string/your_posts"
+            android:textColor="@color/black"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/primary"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

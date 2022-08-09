@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity   {
                 }
 
             }
-        }, methods.getAPIRequest(Constant.METHOD_PROFILE, 0, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_PROFILE, 0, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadProfile.execute();
     }
 
@@ -462,7 +462,7 @@ public class MainActivity extends AppCompatActivity   {
                     methods.getVerifyDialog(getString(R.string.error_unauth_access), message);
                 }
             }
-        }, methods.getAPIRequest(Constant.METHOD_APP_DETAILS, 0, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+        }, methods.getAPIRequest(Constant.METHOD_APP_DETAILS, 0, "", "", "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
         loadAbout.execute();
     }
 

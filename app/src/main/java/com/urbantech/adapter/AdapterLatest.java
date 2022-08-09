@@ -265,7 +265,7 @@ public class AdapterLatest extends RecyclerView.Adapter {
                         methods.showToast(message);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_LIKE, 0, "", id, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_LIKE, 0, "", id, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadLike.execute();
         } else {
             methods.showToast(context.getString(R.string.err_internet_not_conn));
@@ -295,7 +295,7 @@ public class AdapterLatest extends RecyclerView.Adapter {
                         methods.showToast(message);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_FAV, 0, "", qid, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_FAV, 0, "", qid, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "", "","","","","","","","","","","","","","","","","","","","","",null, null));
             loadFav.execute();
         } else {
             methods.showToast(context.getString(R.string.err_internet_not_conn));

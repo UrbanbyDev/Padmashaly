@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/padmashaly.iml" filepath="$PROJECT_DIR$/.idea/modules/padmashaly.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/padmashaly.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/padmashaly.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/checkbox/padmashaly.checkbox.iml" filepath="$PROJECT_DIR$/.idea/modules/checkbox/padmashaly.checkbox.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/slider/padmashaly.slider.iml" filepath="$PROJECT_DIR$/.idea/modules/slider/padmashaly.slider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Padmashaly_github.iml" filepath="$PROJECT_DIR$/.idea/modules/Padmashaly_github.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Padmashaly_github.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Padmashaly_github.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/checkbox/Padmashaly_github.checkbox.iml" filepath="$PROJECT_DIR$/.idea/modules/checkbox/Padmashaly_github.checkbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/slider/Padmashaly_github.slider.iml" filepath="$PROJECT_DIR$/.idea/modules/slider/Padmashaly_github.slider.iml" />
     </modules>
   </component>
 </project>

@@ -214,7 +214,7 @@ public class FragmentRecent extends Fragment {
                         progressBar.setVisibility(View.GONE);
                     }
                 }
-            }, methods.getAPIRequest(Constant.METHOD_RECENT_NEWS, page, "", recentNewsIDs, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","",null, null));
+            }, methods.getAPIRequest(Constant.METHOD_RECENT_NEWS, page, "", recentNewsIDs, "", "", "", "", "", "", "", "", Constant.itemUser.getId(), "",  "","","","","","","","","","","","","","","","","","","","","",null, null));
 
             loadNews.execute();
         } else {

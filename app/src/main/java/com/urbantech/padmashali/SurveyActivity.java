@@ -149,7 +149,7 @@ public class SurveyActivity extends AppCompatActivity implements DatePickerDialo
             }
 
 
-        }, methods.getAPIRequest(Constant.METHOD_SURVEY, 0, "", "", "", spinner_occupation.getSelectedItem().toString(), "", survey_dob.getText().toString(), "", "", survey_name.getText().toString(), "", Constant.itemUser.getId(), "", survey_surname.getText().toString(),survey_fathername.getText().toString(),survey_gender.getSelectedItem().toString(),survey_hno.getText().toString(),survey_wardno.getText().toString(),survey_city.getText().toString(),survey_mandal.getText().toString(),survey_district.getText().toString(),survey_qualification.getText().toString(),null, null));
+        }, methods.getAPIRequest(Constant.METHOD_SURVEY, 0, "", "", "", spinner_occupation.getSelectedItem().toString(), "", survey_dob.getText().toString(), "", "", survey_name.getText().toString(), "", Constant.itemUser.getId(), "", survey_surname.getText().toString(),survey_fathername.getText().toString(),survey_gender.getSelectedItem().toString(),survey_hno.getText().toString(),survey_wardno.getText().toString(),survey_city.getText().toString(),survey_mandal.getText().toString(),survey_district.getText().toString(),survey_qualification.getText().toString(),"","","","","","","","","","","","",null, null));
         loadSurvey.execute();
     }
 

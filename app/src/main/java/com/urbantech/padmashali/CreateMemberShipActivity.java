@@ -283,11 +283,14 @@ public class CreateMemberShipActivity extends AppCompatActivity implements DateP
             public void onEnd(String success, String registerSuccess, String message) {
                 if (success.equals("1")) {
                     if (registerSuccess.equals("1")) {
-                        Intent intent=new Intent(CreateMemberShipActivity.this,ProfileActivity.class);
+
+                        Intent intent=new Intent(CreateMemberShipActivity.this,OtpActivity.class);
+                        intent.putExtra("mobile",member_mobilenumber.getText().toString());
+                        intent.putExtra("verification_type","membership");
                         startActivity(intent);
                         finish();
 
-                        Toast.makeText(CreateMemberShipActivity.this, message, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(CreateMemberShipActivity.this, message, Toast.LENGTH_LONG).show();
 
                     } else {
                         Toast.makeText(CreateMemberShipActivity.this, message, Toast.LENGTH_LONG).show();

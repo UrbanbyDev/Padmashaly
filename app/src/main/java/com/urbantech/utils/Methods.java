@@ -931,6 +931,14 @@ public class Methods {
 
                 break;
 
+            case Constant.METHOD_OTP:
+
+                jsObj.addProperty("member_mobile",phone);
+                jsObj.addProperty("otp",catID);
+                jsObj.addProperty("type",type);
+
+                break;
+
         }
 
 //        Log.e("aaa - url", API.toBase64(jsObj.toString()));

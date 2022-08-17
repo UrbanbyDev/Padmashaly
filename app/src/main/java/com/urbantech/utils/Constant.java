@@ -22,6 +22,8 @@ public class Constant implements Serializable {
     public static final String METHOD_PROFILE = "user_profile";
     public static final String METHOD_PROFILE_EDIT = "edit_profile";
 
+    public static final String METHOD_OTP="otp_verification";
+
     public static final String METHOD_ADDUSER = "add_user";
     public static final String METHOD_SURVEY="survey";
     public static final String METHOD_SURVEY_DETAILS="survey_details";

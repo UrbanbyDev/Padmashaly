@@ -172,7 +172,6 @@ public class ProfileActivity extends AppCompatActivity {
         adapterMemberShip=new AdapterMemberShip(ProfileActivity.this,arrayList);
         recycler_membership.setAdapter(adapterMemberShip);
 
-
         loadMembershipDetails();
 
         button_try.setOnClickListener(new View.OnClickListener() {

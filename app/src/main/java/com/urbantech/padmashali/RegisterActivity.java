@@ -190,11 +190,16 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onEnd(String success, String registerSuccess, String message, String user_id, String user_name, String email, String user_profile, String user_cat, String auth_id, Boolean isReporter) {
                     progressDialog.dismiss();
                     if (success.equals("1")) {
-                        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
                         if (registerSuccess.equals("1")) {
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            intent.putExtra("from", "");
+//                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+//                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                            intent.putExtra("from", "");
+//                            startActivity(intent);
+//                            finish();
+                            Intent intent=new Intent(RegisterActivity.this,OtpActivity.class);
+                            intent.putExtra("mobile",editText_phone.getText().toString());
+                            intent.putExtra("verification_type","register");
                             startActivity(intent);
                             finish();
                         } else {

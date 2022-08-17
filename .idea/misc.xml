@@ -4,18 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Padmashaly_github/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.21302083333333333" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/drawable/otp_input.xml" value="0.21302083333333333" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_about.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_create_member_ship.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_idactivity.xml" value="0.196875" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_login.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_member_ship.xml" value="0.1935185185185185" />
-        <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_otp.xml" value="0.19166666666666668" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_profile.xml" value="0.19166666666666668" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_profile_edit.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_register.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_single_member.xml" value="0.25" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_single_survey.xml" value="0.196875" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_survey.xml" value="0.196875" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_survey_details.xml" value="0.1935185185185185" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_upi.xml" value="0.196875" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_upload_news.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_user_news.xml" value="0.196875" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/layout_empty.xml" value="0.196875" />

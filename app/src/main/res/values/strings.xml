@@ -280,4 +280,9 @@
         <item>Donar MemberShip</item>
     </string-array>
 
+    <string name="upi_id">q663526113@ybl</string>
+    <string name="upi_name">Urbanby</string>
+    <string name="upi_note">Membership Registration</string>
+    <string name="payment_completed">Payment Completed</string>
+
 </resources>

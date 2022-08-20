@@ -34,8 +34,6 @@ public class UPI_Activity extends AppCompatActivity {
     private String from = "";
     EditText amountEt, noteEt, nameEt, upiIdEt;
     AppCompatButton send;
-    String reg_name,reg_constiuency,reg_address,reg_phone,reg_dob,reg_email,reg_pass;
-
     final int UPI_PAYMENT = 0;
     private String reference_number;
 
@@ -67,19 +65,7 @@ public class UPI_Activity extends AppCompatActivity {
         nameEt = findViewById(R.id.name);
         upiIdEt = findViewById(R.id.upi_id);
 
-        reference_number="AIFB"+getRandomNumberString();
-
-        if (getIntent().getExtras() != null) {
-            reg_name = getIntent().getStringExtra("name");
-            reg_constiuency = getIntent().getStringExtra("constituency");
-            reg_address = getIntent().getStringExtra("address");
-            reg_phone=getIntent().getStringExtra("phone");
-            reg_dob = getIntent().getStringExtra("dob");
-            reg_email=getIntent().getStringExtra("email");
-            reg_pass=getIntent().getStringExtra("password");
-            file = (File) getIntent().getExtras().get("file");
-            //The key argument must always match that used send and retrive value from one activity to another.
-        }
+        reference_number=getRandomNumberString();
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,103 +219,4 @@ public class UPI_Activity extends AppCompatActivity {
         return false;
     }
 
-//    private void loadRegister() {
-//        if (methods.isNetworkAvailable()) {
-////            File file = null;
-//////            if (imageUri != null) {
-//////                file = new File(methods.getTempUploadPath(imageUri));
-//////            }
-//
-//            LoadRegister loadRegister = new LoadRegister(new SocialLoginListener() {
-//                @Override
-//                public void onStart() {
-//                    progressDialog.show();
-//                }
-//
-//                @Override
-//                public void onEnd(String success, String registerSuccess, String message, String user_id, String user_name, String email, String user_profile, String user_cat, String auth_id, String constituency, String address, String dateofbirth,String payment_status, Boolean isReporter) {
-//                    progressDialog.dismiss();
-//                    if (success.equals("1")) {
-//                        Toast.makeText(UpiActivity.this, message, Toast.LENGTH_SHORT).show();
-//                        if (registerSuccess.equals("1")) {
-////                            Intent intent = new Intent(UpiActivity.this, LoginActivity.class);
-////                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-////                            intent.putExtra("from", "");
-////                            startActivity(intent);
-////                            finish();
-//                            loadLogin();
-//                        }
-//
-//                    } else {
-//                        Toast.makeText(UpiActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//
-//
-//            }, methods.getAPIRequest(Constant.METHOD_REGISTER, 0, "", payment_status, "", "", "", reg_dob, reg_address,reg_constiuency,reg_email,reg_pass, reg_name,reg_phone, "", "", file, null));
-//            loadRegister.execute();
-//        } else {
-//            Toast.makeText(this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();
-//        }
-//    }
-
-//    private void loadLogin() {
-//        if (methods.isNetworkAvailable()) {
-//            LoadLogin loadLogin = new LoadLogin(new LoginListener() {
-//                @Override
-//                public void onStart() {
-//                    progressDialog.show();
-//                }
-//
-//                @Override
-//                public void onEnd(String success, String loginSuccess, String message, String user_id, String user_name, String dp, String user_cat, Boolean isReporter) {
-//                    progressDialog.dismiss();
-//                    if (success.equals("1")) {
-//                        if (loginSuccess.equals("1")) {
-//                            Constant.itemUser = new ItemUser(user_id, user_name, reg_name, "", dp, "", Constant.LOGIN_TYPE_NORMAL,"","","", isReporter);
-////                            if (cb_rememberme.isChecked()) {
-////                                sharedPref.setLoginDetails(Constant.itemUser, true, editText_password.getText().toString(), Constant.LOGIN_TYPE_NORMAL);
-////                            } else {
-////                                sharedPref.setRemeber(false);
-////                            }
-//                            sharedPref.setIsAutoLogin(true);
-//                            sharedPref.setCat(user_cat);
-//                            Constant.isLogged = true;
-//
-//                            OneSignal.sendTag("user_id", user_id);
-//
-//                            if (from.equals("app")) {
-//                                finish();
-//                            } else {
-////                                openMainActivity();
-//                                Intent intent=new Intent(UpiActivity.this,IDcardActivity.class);
-//                                startActivity(intent);
-//                            }
-//                        }
-//                        Toast.makeText(UpiActivity.this, message, Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(UpiActivity.this, getString(R.string.err_server_no_conn), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }, methods.getAPIRequest(Constant.METHOD_LOGIN, 0,"","","",Constant.LOGIN_TYPE_NORMAL,"","","","",reg_email, reg_pass,"","","","", null, null));
-//            loadLogin.execute();
-//        } else {
-//            Toast.makeText(UpiActivity.this, getString(R.string.err_internet_not_conn), Toast.LENGTH_SHORT).show();
-//        }
-//    }
-
-//    private void openMainActivity() {
-//        Intent intent;
-//        if(!sharedPref.getIsSelectCatShown()) {
-//            intent = new Intent(UpiActivity.this, SelectCategoriesActivity.class);
-//            intent.putExtra("from","");
-//        } else {
-//            intent = new Intent(UpiActivity.this, MainActivity.class);
-//        }
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//        startActivity(intent);
-//        finish();
-//    }
-
-//    }
 }

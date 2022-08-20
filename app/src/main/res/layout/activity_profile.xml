@@ -201,6 +201,8 @@
                 android:id="@+id/recycler_membership"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="100dp"
+                android:clipToPadding="true"
                 app:layout_constraintTop_toBottomOf="@+id/create_membership_txt"/>
 
             <include

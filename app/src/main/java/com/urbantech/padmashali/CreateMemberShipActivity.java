@@ -9,7 +9,10 @@ import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -18,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -31,6 +35,7 @@ import com.urbantech.utils.Methods;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -48,12 +53,15 @@ public class CreateMemberShipActivity extends AppCompatActivity implements DateP
     SmoothCheckBox cb_accept_allterms;
     AppCompatButton submit;
     LinearLayout ll_spouse_layout;
-    CardView cardView_qualification,cardView_profession;
+    CardView cardView_qualification,cardView_profession,cardview_amount;
     private String dob;
     private Uri imageUri;
     private ProgressDialog progress;
     String membership_id,str_religion="",str_caste="",str_marital_status="",str_qualification="",str_profession="";
     RoundedImageView member_profile;
+    String payment_status="0",reference_number;
+    final int UPI_PAYMENT = 0;
+    TextView txt_payment_status;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -117,8 +125,17 @@ public class CreateMemberShipActivity extends AppCompatActivity implements DateP
         ll_spouse_layout=findViewById(R.id.ll_spouse_details);
         cardView_qualification=findViewById(R.id.card_qualification);
         cardView_profession=findViewById(R.id.card_profession);
+        cardview_amount=findViewById(R.id.cardview_amount);
 
         membership_id=getRandomNumber();
+        txt_payment_status=findViewById(R.id.payment_status);
+
+
+        if(payment_status.equals("0")){
+            submit.setText("pay for membership");
+        }else{
+            submit.setText("Submit");
+        }
 
         religion_grp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -231,24 +248,40 @@ public class CreateMemberShipActivity extends AppCompatActivity implements DateP
             }
         });
 
+        reference_number="Padmashali"+getRandomNumber();
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validateData()) {
+                    if (payment_status.equals("0")) {
 
-                    if(member_qualification.getSelectedItem().toString().equals("Others")){
-                        str_qualification=edt_member_qualification.getText().toString();
-                    }else {
-                        str_qualification=member_qualification.getSelectedItem().toString();
+                        String amount = member_amount.getText().toString();
+                        String note =getResources().getString(R.string.upi_note);
+                        String name =getResources().getString(R.string.upi_name);
+                        String upiId =getResources().getString(R.string.upi_id);
+
+                        if(member_amount.getText().toString().trim().isEmpty()) {
+                            member_amount.setError("Enter Amount");
+                            member_amount.requestFocus();
+                        }else {
+                            payUsingUpi(amount, upiId, name, note, reference_number);
+                        }
+
+                    } else {
+                        if (member_qualification.getSelectedItem().toString().equals("Others")) {
+                            str_qualification = edt_member_qualification.getText().toString();
+                        } else {
+                            str_qualification = member_qualification.getSelectedItem().toString();
+                        }
+
+                        if (member_profession.getSelectedItem().toString().equals("Employee")) {
+                            str_profession = edt_member_profession.getText().toString();
+                        } else {
+                            str_profession = member_profession.getSelectedItem().toString();
+                        }
+                        uploadMembership();
                     }
-
-                    if(member_profession.getSelectedItem().toString().equals("Employee")){
-                        str_profession=edt_member_profession.getText().toString();
-                    }else {
-                        str_profession=member_profession.getSelectedItem().toString();
-                    }
-
-                    uploadMembership();
                 }
             }
         });
@@ -300,7 +333,7 @@ public class CreateMemberShipActivity extends AppCompatActivity implements DateP
                 }
                 progress.dismiss();
             }
-        }, methods.getAPIRequest(Constant.METHOD_MEMBERSHIP, 0,"", membership_id, "", membership_type.getSelectedItem().toString(), "", member_dob.getText().toString(), "", "", member_name.getText().toString(), member_mobilenumber.getText().toString(), Constant.itemUser.getId(), "", member_surname.getText().toString(),member_fathername.getText().toString(),member_gender.getSelectedItem().toString(),member_hno.getText().toString(),member_wardno.getText().toString(),member_city.getText().toString(),member_madal.getText().toString(),member_district.getText().toString(),str_qualification,str_profession,str_religion,str_caste,str_marital_status,spouse_name.getText().toString(),spouse_dob.getText().toString(),spouse_gender.getSelectedItem().toString(),member_assembly.getText().toString(),member_parliament.getText().toString(),member_state.getText().toString(),member_country.getText().toString(),member_amount.getText().toString(), file, null));
+        }, methods.getAPIRequest(Constant.METHOD_MEMBERSHIP, 0,"", membership_id, "", membership_type.getSelectedItem().toString(), "", member_dob.getText().toString(), "", "", member_name.getText().toString(), member_mobilenumber.getText().toString(), Constant.itemUser.getId(), payment_status, member_surname.getText().toString(),member_fathername.getText().toString(),member_gender.getSelectedItem().toString(),member_hno.getText().toString(),member_wardno.getText().toString(),member_city.getText().toString(),member_madal.getText().toString(),member_district.getText().toString(),str_qualification,str_profession,str_religion,str_caste,str_marital_status,spouse_name.getText().toString(),spouse_dob.getText().toString(),spouse_gender.getSelectedItem().toString(),member_assembly.getText().toString(),member_parliament.getText().toString(),member_state.getText().toString(),member_country.getText().toString(),member_amount.getText().toString(), file, null));
         loadMembership.execute();
 
     }
@@ -402,6 +435,34 @@ public class CreateMemberShipActivity extends AppCompatActivity implements DateP
         return String.format("%06d", number);
     }
 
+    void payUsingUpi(String amount, String upiId, String name, String note,String reference_number) {
+
+        Uri uri = Uri.parse("upi://pay").buildUpon()
+                .appendQueryParameter("pa", upiId)
+                .appendQueryParameter("pn", name)
+//                .appendQueryParameter("mc","MAHSPO4HO")
+                .appendQueryParameter("tr",reference_number)
+                .appendQueryParameter("tn", note)
+                .appendQueryParameter("am", amount)
+                .appendQueryParameter("cu", "INR")
+                .build();
+
+
+        Intent upiPayIntent = new Intent(Intent.ACTION_VIEW);
+        upiPayIntent.setData(uri);
+
+        // will always show a dialog to user to choose an app
+        Intent chooser = Intent.createChooser(upiPayIntent, "Pay with");
+
+        // check if intent resolves
+        if(null != chooser.resolveActivity(getPackageManager())) {
+            startActivityForResult(chooser, UPI_PAYMENT);
+        } else {
+            Toast.makeText(this,"No UPI app found, please install one to continue",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -411,5 +472,94 @@ public class CreateMemberShipActivity extends AppCompatActivity implements DateP
             imageUri = data.getData();
             member_profile.setImageURI(imageUri);
         }
+
+        switch (requestCode) {
+            case UPI_PAYMENT:
+                if ((RESULT_OK == resultCode) || (resultCode == 11)) {
+                    if (data != null) {
+                        String trxt = data.getStringExtra("response");
+                        //Log.d("UPI", "onActivityResult: " + trxt);
+                        ArrayList<String> dataList = new ArrayList<>();
+                        dataList.add(trxt);
+                        upiPaymentDataOperation(dataList);
+                    } else {
+                        //Log.d("UPI", "onActivityResult: " + "Return data is null");
+                        ArrayList<String> dataList = new ArrayList<>();
+                        dataList.add("nothing");
+                        upiPaymentDataOperation(dataList);
+                    }
+                } else {
+                    //Log.d("UPI", "onActivityResult: " + "Return data is null"); //when user simply back without payment
+                    ArrayList<String> dataList = new ArrayList<>();
+                    dataList.add("nothing");
+                    upiPaymentDataOperation(dataList);
+                }
+                break;
+        }
+    }
+
+    private void upiPaymentDataOperation(ArrayList<String> data) {
+        if (isConnectionAvailable(CreateMemberShipActivity.this)) {
+            String str = data.get(0);
+            //Log.d("UPIPAY", "upiPaymentDataOperation: "+str);
+            String paymentCancel = "";
+            if(str == null) str = "discard";
+            String status = "";
+            String approvalRefNo = "";
+            String response[] = str.split("&");
+            for (int i = 0; i < response.length; i++) {
+                String equalStr[] = response[i].split("=");
+                if(equalStr.length >= 2) {
+                    if (equalStr[0].toLowerCase().equals("Status".toLowerCase())) {
+                        status = equalStr[1].toLowerCase();
+                    }
+                    else if (equalStr[0].toLowerCase().equals("ApprovalRefNo".toLowerCase()) || equalStr[0].toLowerCase().equals("txnRef".toLowerCase())) {
+                        approvalRefNo = equalStr[1];
+                    }
+                }
+                else {
+                    paymentCancel = "Payment cancelled by user.";
+                }
+            }
+
+            if (status.equals("success")) {
+
+//                Intent i = new Intent(UpiActivity.this, RegisterActivity.class);
+//                i.putExtra("payment_status", String.valueOf(1));
+//                setResult(1,i);
+//                finish();
+                payment_status="1";
+                submit.setText("Submit");
+                txt_payment_status.setVisibility(View.VISIBLE);
+                cardview_amount.setVisibility(View.GONE);
+
+
+                //Code to handle successful transaction here.
+                Toast.makeText(CreateMemberShipActivity.this, "Transaction successful.", Toast.LENGTH_SHORT).show();
+                // Log.d("UPI", "responseStr: "+approvalRefNo);
+//                Toast.makeText(this, "YOUR REGISTRATION HAS BEEN \n SUCCESSFUL ", Toast.LENGTH_LONG).show();
+            }
+            else if("Payment cancelled by user.".equals(paymentCancel)) {
+                Toast.makeText(CreateMemberShipActivity.this, "Payment cancelled by user.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(CreateMemberShipActivity.this, "Transaction failed.Please try again", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(CreateMemberShipActivity.this, "Internet connection is not available. Please check and try again", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static boolean isConnectionAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
+            if (netInfo != null && netInfo.isConnected()
+                    && netInfo.isConnectedOrConnecting()
+                    && netInfo.isAvailable()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

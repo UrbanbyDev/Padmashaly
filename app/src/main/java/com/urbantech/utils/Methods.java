@@ -917,6 +917,7 @@ public class Methods {
                 jsObj.addProperty("membership_type",type);
                 jsObj.addProperty("member_amount",amount);
                 jsObj.addProperty("member_mobile",phone);
+                jsObj.addProperty("payment_status",reportMessage_url);
 
                 break;
 

@@ -259,13 +259,13 @@ public class Methods {
 
     private void saveImage(String img_url, String name) {
 
-        String regex = "([0-9_-]+(\\.(?i)(jpe?g|png|gif|bmp))$)";
+//        String regex = "([0-9_-]+(\\.(?i)(jpe?g|png|gif|bmp))$)";
 
-        if(name.matches(regex)){
+//        if(name.matches(regex)){
             new LoadShare().execute(img_url, name);
-        }else{
-            showToast("You Cannot Share This News");
-        }
+//        }else{
+//            showToast("You Cannot Share This News");
+//        }
 
     }
 
@@ -351,14 +351,14 @@ public class Methods {
 
             Intent intent = new Intent(Intent.ACTION_SEND);
             
-            intent.setDataAndType(contentUri, context.getContentResolver().getType(contentUri));
-
+//            intent.setDataAndType(contentUri, context.getContentResolver().getType(contentUri));
+            intent.setType("text/plain");
             if (!itemNews.getVideoUrl().trim().isEmpty()) {
-                intent.putExtra(Intent.EXTRA_TEXT, itemNews.getHeading() + "\n\n" + itemNews.getVideoUrl() + "\n\n" + itemNews.getShareLink() + "\n\n" + context.getString(R.string.share_message) + "\n" + context.getString(R.string.app_name) + " - http://play.google.com/store/apps/details?id=" + context.getPackageName());
+                intent.putExtra(Intent.EXTRA_TEXT, itemNews.getHeading() + "\n\n" + itemNews.getShareLink() + "\n\n" + "Video Url"+"\n"+itemNews.getVideoUrl() + "\n\n" + context.getString(R.string.share_message) + "\n" + context.getString(R.string.app_name) + " - http://play.google.com/store/apps/details?id=" + context.getPackageName());
             } else {
                 intent.putExtra(Intent.EXTRA_TEXT, itemNews.getHeading() + "\n\n" + itemNews.getShareLink() + "\n\n" + context.getString(R.string.share_message) + "\n" + context.getString(R.string.app_name) + " - http://play.google.com/store/apps/details?id=" + context.getPackageName());
             }
-            intent.putExtra(Intent.EXTRA_STREAM, contentUri);
+//            intent.putExtra(Intent.EXTRA_STREAM, contentUri);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_news)));
             super.onPostExecute(s);

@@ -34,7 +34,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="centerCrop"
-                android:src="@color/colorPrimary"
+                android:src="@color/primary"
                 app:riv_corner_radius="2dp" />
 
             <EditText
@@ -57,9 +57,10 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:textColor="@color/white_dark"
+                android:textColor="@color/black"
                 android:paddingLeft="30dp"
-                android:paddingRight="30dp"/>
+                android:paddingRight="30dp"
+                android:backgroundTint="@color/primary"/>
 
         </LinearLayout>
 

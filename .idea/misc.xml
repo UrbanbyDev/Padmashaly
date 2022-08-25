@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Padmashaly_github/app/src/main/res/drawable/bg_round_border.xml" value="0.20974358974358975" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.21302083333333333" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/drawable/otp_input.xml" value="0.21302083333333333" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_about.xml" value="0.1935185185185185" />
@@ -10,6 +11,7 @@
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_idactivity.xml" value="0.196875" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_login.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_member_ship.xml" value="0.1935185185185185" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_news_details.xml" value="0.1787037037037037" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_otp.xml" value="0.19166666666666668" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_profile.xml" value="0.19166666666666668" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/activity_profile_edit.xml" value="0.1935185185185185" />
@@ -24,6 +26,9 @@
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/layout_empty.xml" value="0.196875" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/layout_membership.xml" value="0.1935185185185185" />
         <entry key="..\:/Padmashaly_github/app/src/main/res/layout/layout_newsbycat.xml" value="0.1935185185185185" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/layout/layout_pager_news.xml" value="0.1814814814814815" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/layout/layout_report.xml" value="0.22" />
+        <entry key="..\:/Padmashaly_github/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21302083333333333" />
       </map>
     </option>
   </component>

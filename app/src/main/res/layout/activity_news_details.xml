@@ -32,6 +32,7 @@
                     android:id="@+id/slider"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/logo"
                     app:layout_collapseMode="pin"/>
 
                 <androidx.appcompat.widget.Toolbar
